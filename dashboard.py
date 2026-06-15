@@ -53,22 +53,18 @@ st.markdown("""
     margin-bottom: 8px;
 }
 .insight-box {
-    background-color: #00cc96;
-    border-left: 4px solid #009970;
+    background-color: #1a2e1a;
+    border-left: 4px solid #00cc96;
     padding: 12px 16px;
     border-radius: 6px;
     margin-top: 8px;
-    color: #000000;
-    font-weight: 500;
 }
 .warning-box {
-    background-color: #ffa500;
-    border-left: 4px solid #cc8400;
+    background-color: #2e2a1a;
+    border-left: 4px solid #ffa500;
     padding: 12px 16px;
     border-radius: 6px;
     margin-top: 8px;
-    color: #000000;
-    font-weight: 500;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -445,7 +441,7 @@ with col1:
     )
     fig.update_traces(textposition="inside", textinfo="percent+label")
     fig.update_layout(showlegend=False)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 with col2:
     fig2 = px.pie(
@@ -457,7 +453,7 @@ with col2:
     )
     fig2.update_traces(textposition="inside", textinfo="percent+label")
     fig2.update_layout(showlegend=False)
-    st.plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(fig2, width="stretch")
 
 with col3:
     compare = pd.DataFrame({
@@ -474,7 +470,7 @@ with col3:
     )
     fig3.update_layout(xaxis_tickangle=-45, yaxis_tickformat=".0%",
                        legend=dict(orientation="h", yanchor="bottom", y=1.02))
-    st.plotly_chart(fig3, use_container_width=True)
+    st.plotly_chart(fig3, width="stretch")
 
 with st.expander("💡 How to interpret these charts"):
     st.markdown("""
@@ -521,7 +517,7 @@ fig4.update_layout(
     yaxis_tickformat=".1%",
     legend=dict(orientation="h", yanchor="bottom", y=1.02)
 )
-st.plotly_chart(fig4, use_container_width=True)
+st.plotly_chart(fig4, width="stretch")
 
 # Show biggest movers
 diff = mu_bl - pi
@@ -597,7 +593,7 @@ fig5 = px.bar(
 fig5.update_traces(texttemplate="%{text:.1%}", textposition="outside")
 fig5.update_layout(xaxis_tickangle=-45, yaxis_tickformat=".0%",
                    legend=dict(orientation="h", yanchor="bottom", y=1.02))
-st.plotly_chart(fig5, use_container_width=True)
+st.plotly_chart(fig5, width="stretch")
 
 with st.expander("💡 How momentum scores become views"):
     st.markdown(f"""
@@ -660,7 +656,7 @@ fig6.update_layout(
     yaxis_tickprefix="£",
     yaxis_tickformat=".2f",
 )
-st.plotly_chart(fig6, use_container_width=True)
+st.plotly_chart(fig6, width="stretch")
 
 # Performance table
 st.subheader("Performance Summary")
@@ -715,7 +711,7 @@ fig7.update_layout(
     legend=dict(orientation="h", yanchor="bottom", y=1.02),
     yaxis_tickformat=".0%",
 )
-st.plotly_chart(fig7, use_container_width=True)
+st.plotly_chart(fig7, width="stretch")
 
 with st.expander("💡 How to interpret rolling weights"):
     st.markdown("""
@@ -755,7 +751,7 @@ fig8.update_layout(
     xaxis_tickangle=-45,
     coloraxis_colorbar=dict(title="Correlation"),
 )
-st.plotly_chart(fig8, use_container_width=True)
+st.plotly_chart(fig8, width="stretch")
 
 with st.expander("💡 How to interpret the correlation matrix"):
     st.markdown("""
