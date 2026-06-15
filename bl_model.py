@@ -86,10 +86,25 @@ def get_returns(start="2010-01-01", end="2024-12-31", freq="ME"):
     pd.DataFrame  shape (T, 11) -- period returns indexed by date.
     """
     raw = yf.download(TICKERS, start=start, end=end,
-                      auto_adjust=True, progress=False)["Close"]
-    prices = raw.resample(freq).last()
+                      auto_adjust=True, progress=False)
+
+    # Handle MultiIndex columns from newer yfinance versions
+    if isinstance(raw.columns, pd.MultiIndex):
+        raw = raw["Close"]
+    else:
+        raw = raw["Close"]
+
+    # Try month-end resampling — "ME" (pandas >= 2.2) falls back to "M"
+    try:
+        prices = raw.resample(freq).last()
+    except ValueError:
+        prices = raw.resample("M").last()
+
     returns = prices.pct_change().dropna()
-    returns = returns[TICKERS]
+
+    # Keep only the tickers we expect, in the right order
+    available = [t for t in TICKERS if t in returns.columns]
+    returns = returns[available].dropna()
     return returns
 
 
@@ -114,7 +129,9 @@ def ledoit_wolf_cov(returns):
     estimation error at the cost of a small bias. This produces more stable
     portfolio weights downstream.
     """
-    lw = LedoitWolf().fit(returns)
+    # Pass .values (numpy array) — required by sklearn on Python 3.12+
+    X = returns.values.astype(float)
+    lw = LedoitWolf().fit(X)
     cov = pd.DataFrame(lw.covariance_ * 12,
                        index=returns.columns,
                        columns=returns.columns)
