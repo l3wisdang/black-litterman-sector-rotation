@@ -40,32 +40,37 @@ st.set_page_config(
 st.markdown("""
 <style>
 .guide-box {
-    background-color: #1e2a3a;
+    background-color: #eef4fb;
+    color: #1a1a1a;
     border-left: 4px solid #4a9eff;
     padding: 16px 20px;
     border-radius: 6px;
     margin-bottom: 12px;
 }
 .term-box {
-    background-color: #1e2a3a;
+    background-color: #f0f3f7;
+    color: #1a1a1a;
     border-radius: 6px;
     padding: 12px 16px;
     margin-bottom: 8px;
 }
 .insight-box {
-    background-color: #1a2e1a;
-    border-left: 4px solid #00cc96;
+    background-color: #e7f7ee;
+    color: #1a1a1a;
+    border-left: 4px solid #00a578;
     padding: 12px 16px;
     border-radius: 6px;
     margin-top: 8px;
 }
 .warning-box {
-    background-color: #2e2a1a;
-    border-left: 4px solid #ffa500;
+    background-color: #fdf1e0;
+    color: #1a1a1a;
+    border-left: 4px solid #e08a00;
     padding: 12px 16px;
     border-radius: 6px;
     margin-top: 8px;
 }
+.guide-box b, .term-box b, .insight-box b, .warning-box b { color: #1a1a1a; }
 </style>
 """, unsafe_allow_html=True)
 
