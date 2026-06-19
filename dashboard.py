@@ -81,8 +81,27 @@ st.markdown("""
 st.title("📊 Black-Litterman Sector Rotation")
 st.markdown(
     "An interactive implementation of the **Black-Litterman model** applied to "
-    "S&P 500 sector ETFs. Systematic views are generated from **12-1 momentum** "
-    "— you can override any sector with your own view using the sidebar."
+    "S&P 500 sector ETFs. Systematic views are generated from **12-1 momentum**, "
+    "and you can override any sector with your own view using the sidebar."
+)
+
+st.markdown(
+    "##### What is the Black-Litterman model?\n"
+    "Developed at Goldman Sachs, it builds a portfolio by **combining two things**: "
+    "the market's own *equilibrium* view (a sensible, diversified starting point) and "
+    "*your views* on which assets will outperform, each weighted by how **confident** "
+    "you are. Naive optimisers trust noisy historical returns and end up dumping "
+    "everything into one or two sectors; Black-Litterman only moves away from the "
+    "market when a view gives it a reason to. The two are blended with one formula:"
+)
+st.latex(r"\mu_{BL} = \left[(\tau\Sigma)^{-1} + P^{\top}\Omega^{-1}P\right]^{-1}"
+         r"\left[(\tau\Sigma)^{-1}\pi + P^{\top}\Omega^{-1}Q\right]")
+st.markdown(
+    "where **π** = market-equilibrium returns (the prior), **Σ** = covariance of "
+    "returns, **τ** = how much we trust the prior, **P** and **Q** = your views "
+    "(which sectors, and by how much), **Ω** = your confidence in those views, and "
+    "**μ&#95;BL** = the resulting blended expected returns that get fed into the "
+    "optimiser. Full definitions are in the glossary below."
 )
 
 # ---------------------------------------------------------------------------
