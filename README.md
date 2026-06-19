@@ -5,7 +5,7 @@
 **15.2% annualised return · 0.66 Sharpe ratio · -14.0% max drawdown**  
 Built with Python · yfinance · scikit-learn · scipy · Streamlit · Plotly
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://black-litterman-sector-rotation-ame3hzegngnsyrqmcazrrf.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://black-litterman-sector-rotation-wtawxpkzyq45dv7qszdarr.streamlit.app/)
 
 ---
 
@@ -86,7 +86,7 @@ The interactive Streamlit dashboard was another deliberate choice. A Jupyter not
 ## 🔌 Running the Project
 
 **Live demo (no installation needed):**  
-👉 [https://black-litterman-sector-rotation-ame3hzegngnsyrqmcazrrf.streamlit.app/](https://black-litterman-sector-rotation-ame3hzegngnsyrqmcazrrf.streamlit.app/)
+👉 [https://black-litterman-sector-rotation-wtawxpkzyq45dv7qszdarr.streamlit.app/](https://black-litterman-sector-rotation-wtawxpkzyq45dv7qszdarr.streamlit.app/)
 
 **Run locally:**
 
